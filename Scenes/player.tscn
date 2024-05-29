@@ -1,8 +1,29 @@
-[gd_scene load_steps=21 format=3 uid="uid://cad0vr46ot166"]
+[gd_scene load_steps=27 format=3 uid="uid://cad0vr46ot166"]
 
 [ext_resource type="Texture2D" uid="uid://bmb3fw37pjshq" path="res://Assets/Skeleton_Archer/Idle.png" id="1_5oxh4"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8kusq"]
 [ext_resource type="Texture2D" uid="uid://ohqyb5altnnv" path="res://Assets/Skeleton_Archer/Walk.png" id="2_cpu7e"]
+[ext_resource type="Texture2D" uid="uid://be8qgm8x8a8wc" path="res://Assets/Skeleton_Archer/Dead.png" id="2_mr6qb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjajb"]
+atlas = ExtResource("2_mr6qb")
+region = Rect2(0, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pex35"]
+atlas = ExtResource("2_mr6qb")
+region = Rect2(128, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_525o7"]
+atlas = ExtResource("2_mr6qb")
+region = Rect2(256, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnhsr"]
+atlas = ExtResource("2_mr6qb")
+region = Rect2(384, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y22ek"]
+atlas = ExtResource("2_mr6qb")
+region = Rect2(512, 64, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sce8x"]
 atlas = ExtResource("1_5oxh4")
@@ -68,6 +89,26 @@ region = Rect2(896, 64, 128, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fjajb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pex35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_525o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnhsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y22ek")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sce8x")
 }, {
 "duration": 1.0,
@@ -131,8 +172,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oye6l")
-animation = &"walk"
-frame_progress = 0.138628
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4.5, 0)

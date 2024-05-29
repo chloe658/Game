@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dflrnqsb2glb"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_3op3i"]
+[ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="1_jjoew"]
+[ext_resource type="Texture2D" uid="uid://c6kqq7kl28vav" path="res://Assets/Clouds 1.png" id="2_um1q5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwhq4"]
+texture = ExtResource("2_um1q5")
+0:0/size_in_atlas = Vector2i(36, 20)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6dkxy"]
+sources/0 = SubResource("TileSetAtlasSource_xwhq4")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3op3i")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(1.1, 1.1)
+tile_set = SubResource("TileSet_6dkxy")
+format = 2
+layer_0/tile_data = PackedInt32Array(589808, 0, 0, 524308, 0, 0, -589846, 0, 805306368, -655346, 0, 805306368, -655310, 0, 805306368)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = -23.0
+offset_right = 50.0
+offset_bottom = 101.0
+grow_horizontal = 2
+
+[node name="play_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jjoew")
+text = "Play"
+
+[node name="quit_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jjoew")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]

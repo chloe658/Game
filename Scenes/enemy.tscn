@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dttxkwaohlnl8"]
+
+[ext_resource type="Texture2D" uid="uid://h03hxofgcuri" path="res://Assets/ghost-sprite-sheet.png" id="1_6h30a"]
+[ext_resource type="PackedScene" uid="uid://cxljr3hljhv3w" path="res://Scenes/killzone.tscn" id="2_k7v7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d2ae"]
+atlas = ExtResource("1_6h30a")
+region = Rect2(0, 125, 52, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdeq8"]
+atlas = ExtResource("1_6h30a")
+region = Rect2(52, 125, 52, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4tjc"]
+atlas = ExtResource("1_6h30a")
+region = Rect2(104, 125, 52, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vce2"]
+atlas = ExtResource("1_6h30a")
+region = Rect2(156, 125, 52, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twb2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d2ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdeq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4tjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vce2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3tg28"]
+radius = 15.0
+height = 50.0
+
+[node name="enemy" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_twb2k")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.208392
+
+[node name="killzone" parent="." instance=ExtResource("2_k7v7p")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(-8, -5)
+shape = SubResource("CapsuleShape2D_3tg28")
