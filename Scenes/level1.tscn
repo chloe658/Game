@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cad0vr46ot166" path="res://Scenes/player.tscn" id="12_n17g6"]
 [ext_resource type="PackedScene" uid="uid://cxljr3hljhv3w" path="res://Scenes/killzone.tscn" id="13_d527y"]
 [ext_resource type="PackedScene" uid="uid://3bi8hl5v20u" path="res://Scenes/coin.tscn" id="14_x2hwy"]
-[ext_resource type="PackedScene" uid="uid://mxroet1wnyi2" path="res://Scenes/next_level.tscn" id="15_h6g1n"]
+[ext_resource type="PackedScene" uid="uid://mxroet1wnyi2" path="res://Scenes/next_level.tscn" id="15_8xj0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fydwj"]
 texture = ExtResource("1_c56wm")
@@ -460,61 +460,62 @@ sources/2 = SubResource("TileSetAtlasSource_7p217")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7iio"]
 
 [node name="Level 1" type="Node2D"]
-position = Vector2(93, -14)
+position = Vector2(415, 314)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_nshn4")
 format = 2
 layer_0/name = "Background"
 layer_1/name = "Midground"
-layer_1/tile_data = PackedInt32Array(131071, 65538, 4, 65536, 131074, 4, 65538, 2, 4, 65539, 65538, 4, 65540, 65538, 4, 65541, 131074, 4, 65543, 2, 4, 65544, 65538, 4, 65545, 131074, 4, 65547, 2, 4, 65548, 131074, 4, 131070, 65538, 4, 131069, 65538, 4, 131068, 2, 4, 65554, 196610, 4, 65558, 196610, 4, 65562, 196610, 4, 65566, 196610, 4, 65551, 196610, 4, -131072, 1, 0, -131054, 1, 0, -131036, 1, 0, 65570, 655362, 3)
+layer_1/tile_data = PackedInt32Array(65543, 2, 4, 65544, 65538, 4, 65545, 131074, 4, 65547, 2, 4, 65548, 131074, 4, 65554, 196610, 4, 65558, 196610, 4, 65562, 196610, 4, 65566, 196610, 4, 65551, 196610, 4, -131072, 1, 0, -131054, 1, 0, -131036, 1, 0, 65570, 655362, 3, 131068, 2, 0, 65536, 131074, 0, 131070, 65538, 0, 131069, 65538, 0, 131071, 65538, 0, 196604, 2, 1, 196605, 65538, 1, 196607, 65538, 1, 196606, 131074, 1, 131072, 196610, 1, 262140, 2, 5, 196608, 65538, 5, 262141, 196610, 0, 262142, 196610, 0, 262143, 196610, 0, 65538, 2, 0, 65539, 65538, 0, 65540, 65538, 0, 65541, 131074, 0, 131077, 196610, 1, 131074, 262146, 5, 131075, 131074, 1, 131076, 65538, 1, 196611, 2, 3, 196610, 262146, 4, 196613, 65538, 5, 196612, 196610, 0)
 
 [node name="score" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("10_blyg2")
 
 [node name="score_lable" type="Label" parent="score"]
-offset_left = -140.0
-offset_top = -97.0
-offset_right = -38.0
-offset_bottom = -71.0
+offset_left = -170.0
+offset_top = 57.0
+offset_right = -68.0
+offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("11_gxybe")
 text = "Score: 0"
 
 [node name="player" parent="." instance=ExtResource("12_n17g6")]
-position = Vector2(-42, 0)
+position = Vector2(-46, -3)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(-4, -6)
 zoom = Vector2(3, 3)
-limit_bottom = 95
+limit_bottom = 420
 
 [node name="killzone" parent="." instance=ExtResource("13_d527y")]
-position = Vector2(-10, 122)
+position = Vector2(8, 141)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_d7iio")
 
 [node name="coin" parent="." instance=ExtResource("14_x2hwy")]
-position = Vector2(977, 23)
+position = Vector2(781, -8)
 
 [node name="coin3" parent="." instance=ExtResource("14_x2hwy")]
-position = Vector2(721, 23)
+position = Vector2(544, -2)
 
 [node name="coin4" parent="." instance=ExtResource("14_x2hwy")]
-position = Vector2(496, 20)
+position = Vector2(909, -7)
 
 [node name="coin2" parent="." instance=ExtResource("14_x2hwy")]
-position = Vector2(275, 22)
+position = Vector2(655, -7)
 
 [node name="level" type="Label" parent="."]
-offset_left = -233.0
-offset_top = -103.0
-offset_right = -145.0
-offset_bottom = -80.0
+offset_left = -577.0
+offset_top = -286.0
+offset_right = -489.0
+offset_bottom = -263.0
 theme_override_fonts/font = ExtResource("11_gxybe")
 text = "Level 1"
+metadata/_edit_use_anchors_ = true
 
-[node name="next_level" parent="." instance=ExtResource("15_h6g1n")]
-position = Vector2(1110, 21)
-metadata/_edit_group_ = true
+[node name="next_level" parent="." instance=ExtResource("15_8xj0p")]
+position = Vector2(1104, 10)

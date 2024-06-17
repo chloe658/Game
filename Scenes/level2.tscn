@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3ulvvftl0mfb"]
+[gd_scene load_steps=14 format=3 uid="uid://d3ulvvftl0mfb"]
 
 [ext_resource type="Texture2D" uid="uid://dh78piv46ni4" path="res://Assets/tile-set.png" id="1_qgq1e"]
 [ext_resource type="Texture2D" uid="uid://c6kqq7kl28vav" path="res://Assets/Clouds 1.png" id="2_bgpuo"]
+[ext_resource type="Texture2D" uid="uid://cse5eqiqb8sax" path="res://Assets/Clouds 7.png" id="3_2u48t"]
 [ext_resource type="PackedScene" uid="uid://cad0vr46ot166" path="res://Scenes/player.tscn" id="3_oiqsi"]
 [ext_resource type="Script" path="res://Scripts/score.gd" id="4_swk0h"]
 [ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="5_ttpp0"]
-[ext_resource type="PackedScene" uid="uid://mxroet1wnyi2" path="res://Scenes/next_level.tscn" id="6_sheqp"]
-[ext_resource type="PackedScene" uid="uid://cxljr3hljhv3w" path="res://Scenes/killzone.tscn" id="7_6o8qw"]
+[ext_resource type="PackedScene" uid="uid://cxljr3hljhv3w" path="res://Scenes/killzone.tscn" id="7_b8k47"]
+[ext_resource type="PackedScene" uid="uid://mxroet1wnyi2" path="res://Scenes/next_level.tscn" id="8_fj3w2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hw6ns"]
 texture = ExtResource("1_qgq1e")
@@ -379,59 +380,71 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yo68d"]
+texture = ExtResource("3_2u48t")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(18, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_owi4o"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hw6ns")
 sources/1 = SubResource("TileSetAtlasSource_yegng")
+sources/2 = SubResource("TileSetAtlasSource_yo68d")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m302o"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ivcp6"]
 
 [node name="level2" type="Node2D"]
+position = Vector2(394, 309)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_owi4o")
 format = 2
 layer_0/name = "Background"
-layer_0/tile_data = PackedInt32Array(-65543, 1, 0, -131061, 1, 0)
+layer_0/tile_data = PackedInt32Array(-65541, 2, 0, -131059, 2, 0)
 layer_1/name = "Midground"
 layer_1/tile_data = PackedInt32Array(131068, 0, 8, 131069, 131072, 8, 131070, 131072, 8, 131071, 131072, 8, 65536, 262144, 8, -65533, 786432, 6, 3, 786432, 8, 2, 0, 0, 65538, 1048576, 10, 65539, 1179648, 10, 4, 1179648, 10, -65532, 262144, 0, -65528, 0, 0, -65527, 131072, 0, -65526, 262144, 0, 8, 917504, 8, 10, 1179648, 8, 9, 1048576, 8, -65523, 1310720, 6)
 
 [node name="player" parent="." instance=ExtResource("3_oiqsi")]
-position = Vector2(-42, 0)
+position = Vector2(-50, -3)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(-4, -6)
+scale = Vector2(0.333333, 0.333333)
 zoom = Vector2(3, 3)
-limit_bottom = 95
+limit_bottom = 420
 
 [node name="score" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_swk0h")
 
 [node name="score_lable" type="Label" parent="score"]
-offset_left = -234.0
-offset_top = -91.0
-offset_right = -131.0
-offset_bottom = -71.0
+offset_left = -194.0
+offset_top = 62.0
+offset_right = -91.0
+offset_bottom = 82.0
 theme_override_fonts/font = ExtResource("5_ttpp0")
 text = "Score: 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="level" type="Label" parent="."]
-offset_left = -233.0
-offset_top = -111.0
-offset_right = -145.0
-offset_bottom = -80.0
+offset_left = -584.0
+offset_top = -279.0
+offset_right = -496.0
+offset_bottom = -248.0
 theme_override_fonts/font = ExtResource("5_ttpp0")
 text = "Level 2"
 metadata/_edit_use_anchors_ = true
 
-[node name="next_level" parent="." instance=ExtResource("6_sheqp")]
-position = Vector2(438, -43)
-
-[node name="killzone" parent="." instance=ExtResource("7_6o8qw")]
-position = Vector2(-10, 122)
+[node name="killzone" parent="." instance=ExtResource("7_b8k47")]
+position = Vector2(9, 134)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-shape = SubResource("WorldBoundaryShape2D_m302o")
+shape = SubResource("WorldBoundaryShape2D_ivcp6")
+
+[node name="next_level" parent="." instance=ExtResource("8_fj3w2")]
+position = Vector2(432, -54)
