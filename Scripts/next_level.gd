@@ -5,7 +5,8 @@ var current_level = 1
 @onready var timer = $Timer
 
 func _on_body_entered(body):
-	timer.start()
+	if body.name == "player":
+		timer.start()
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://Scenes/level2.tscn")
@@ -13,3 +14,7 @@ func _on_timer_timeout():
 	#currently this doesn't work as it will always take the player to level 2.
 
 
+
+
+func _on_menu_pressed():
+	pass # Replace with function body.

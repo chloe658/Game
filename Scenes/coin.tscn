@@ -91,7 +91,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qbel0")
 }],
 "loop": true,
-"name": &"default",
+"name": &"spin",
 "speed": 5.0
 }]
 
@@ -103,6 +103,9 @@ script = ExtResource("1_mixpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ybsin")
+animation = &"spin"
+autoplay = "spin"
+frame_progress = 0.87279
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bc6jm")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqyccrar72tea"
-path="res://.godot/imported/Clouds 6.png-fd8c50103616ad74b3fbd01f2e7aeced.ctex"
+uid="uid://cs8gkv0diglo0"
+path="res://.godot/imported/Door.png-bd1efde7a0fae1d22ab8d52c723c2800.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Clouds 6.png"
-dest_files=["res://.godot/imported/Clouds 6.png-fd8c50103616ad74b3fbd01f2e7aeced.ctex"]
+source_file="res://Assets/Door.png"
+dest_files=["res://.godot/imported/Door.png-bd1efde7a0fae1d22ab8d52c723c2800.ctex"]
 
 [params]
 
