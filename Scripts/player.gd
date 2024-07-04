@@ -39,3 +39,10 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+	
+	
+func die():
+	animated_sprite_2d.play("die")
+	print("die")
+	#output is printed and no errors but animation doesnt play
+	
