@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://n1on44ble13o"]
+
+[ext_resource type="Script" path="res://Scripts/end_level.gd" id="1_batyx"]
+[ext_resource type="Texture2D" uid="uid://dnjhw7thmutq" path="res://Assets/level-menu-tileset.png" id="1_iiua3"]
+[ext_resource type="Texture2D" uid="uid://cv87s6wl6kjod" path="res://Assets/buttons/menu.png" id="2_vm4k1"]
+[ext_resource type="Texture2D" uid="uid://dtxonf56ntgdq" path="res://Assets/buttons/forward.png" id="3_fin47"]
+[ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="3_ho77e"]
+[ext_resource type="Texture2D" uid="uid://ni3cvphjm566" path="res://Assets/buttons/empty_star.png" id="6_kuaaa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nq1e3"]
+texture = ExtResource("1_iiua3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f88tc"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_nq1e3")
+
+[node name="end_level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -832.0
+offset_bottom = -488.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_batyx")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_f88tc")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 1, 0, 1, 65537, 0, 2, 65537, 0, 3, 65537, 0, 4, 65537, 0, 5, 65537, 0, 6, 65537, 0, 7, 65537, 0, 8, 65537, 0, 9, 131073, 0, 65536, 1, 1, 131072, 1, 1, 196608, 1, 1, 65545, 131073, 1, 131081, 131073, 1, 196617, 131073, 1, 262144, 1, 2, 262153, 131073, 2, 262145, 65537, 2, 262146, 65537, 2, 262147, 65537, 2, 262148, 65537, 2, 262149, 65537, 2, 262150, 65537, 2, 262151, 65537, 2, 262152, 65537, 2, 65537, 65537, 1, 131073, 65537, 1, 196609, 65537, 1, 65538, 65537, 1, 131074, 65537, 1, 196610, 65537, 1, 65539, 65537, 1, 131075, 65537, 1, 196611, 65537, 1, 65540, 65537, 1, 131076, 65537, 1, 196612, 65537, 1, 65541, 65537, 1, 131077, 65537, 1, 196613, 65537, 1, 65542, 65537, 1, 131078, 65537, 1, 196614, 65537, 1, 65543, 65537, 1, 131079, 65537, 1, 196615, 65537, 1, 65544, 65537, 1, 131080, 65537, 1, 196616, 65537, 1)
+
+[node name="current_level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 112.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_ho77e")
+theme_override_font_sizes/font_size = 8
+text = "Level: "
+
+[node name="time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 80.0
+offset_right = 192.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_ho77e")
+theme_override_font_sizes/font_size = 8
+text = "Time: "
+
+[node name="coins" type="Label" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 80.0
+offset_right = 304.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_ho77e")
+theme_override_font_sizes/font_size = 8
+text = "Coins:
+"
+
+[node name="main_menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 104.0
+offset_right = 144.0
+offset_bottom = 144.0
+icon = ExtResource("2_vm4k1")
+flat = true
+
+[node name="next_level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 104.0
+offset_right = 224.0
+offset_bottom = 144.0
+icon = ExtResource("3_fin47")
+flat = true
+icon_alignment = 1
+
+[node name="EmptyStar" type="Sprite2D" parent="."]
+position = Vector2(64, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("6_kuaaa")
+
+[node name="EmptyStar2" type="Sprite2D" parent="."]
+position = Vector2(160, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("6_kuaaa")
+
+[node name="EmptyStar3" type="Sprite2D" parent="."]
+position = Vector2(256, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("6_kuaaa")
+
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="next_level" to="." method="_on_next_level_pressed"]
