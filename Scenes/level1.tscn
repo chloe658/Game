@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://v7t8py6bxafo"]
+[gd_scene load_steps=21 format=3 uid="uid://v7t8py6bxafo"]
 
 [ext_resource type="Texture2D" uid="uid://c0h4e2eclfs04" path="res://Assets/sky.png" id="1_mrhaj"]
 [ext_resource type="Texture2D" uid="uid://dh78piv46ni4" path="res://Assets/tile-set.png" id="2_8fxmi"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cad0vr46ot166" path="res://Scenes/player.tscn" id="12_n17g6"]
 [ext_resource type="PackedScene" uid="uid://cxljr3hljhv3w" path="res://Scenes/killzone.tscn" id="13_d527y"]
 [ext_resource type="PackedScene" uid="uid://n1on44ble13o" path="res://Scenes/end_level.tscn" id="13_llp74"]
+[ext_resource type="Script" path="res://Scripts/timer_minutes.gd" id="14_pb71l"]
 [ext_resource type="PackedScene" uid="uid://3bi8hl5v20u" path="res://Scenes/coin.tscn" id="14_x2hwy"]
 [ext_resource type="PackedScene" uid="uid://mxroet1wnyi2" path="res://Scenes/next_level.tscn" id="15_8xj0p"]
 
@@ -429,7 +430,7 @@ layer_2/name = "ground"
 layer_2/tile_data = PackedInt32Array(131068, 1, 0, 65538, 1, 0, 131069, 65537, 0, 131070, 65537, 0, 131071, 65537, 0, 65539, 65537, 0, 65540, 65537, 0, 65541, 131073, 0, 65536, 131073, 0, 262140, 1, 2, 196610, 1, 2, 196613, 196609, 2, 196608, 196609, 2, 262141, 65537, 2, 262142, 65537, 2, 262143, 65537, 2, 196611, 65537, 2, 196612, 65537, 2, 196605, 65537, 1, 196606, 65537, 1, 196607, 65537, 1, 131075, 65537, 1, 131076, 65537, 1, 196604, 1, 1, 131074, 1, 1, 131077, 196609, 1, 131072, 196609, 1, 65543, 1, 4, 65547, 1, 4, 65545, 131073, 4, 65548, 131073, 4, 65544, 65537, 4, 65551, 196609, 4, 65554, 196609, 4, 65558, 196609, 4, 65562, 196609, 4, 65566, 196609, 4, 65570, 458753, 3, 65571, 589825, 3)
 
 [node name="next_level" parent="." instance=ExtResource("15_8xj0p")]
-position = Vector2(1118, 11)
+position = Vector2(1117, 11)
 metadata/_edit_group_ = true
 
 [node name="Door2" type="Sprite2D" parent="next_level"]
@@ -477,6 +478,20 @@ theme_override_fonts/font = ExtResource("11_gxybe")
 theme_override_font_sizes/font_size = 8
 text = "Level 1"
 
+[node name="score" type="Label" parent="player"]
+unique_name_in_owner = true
+offset_left = -180.0
+offset_top = -70.0
+offset_right = -129.0
+offset_bottom = -62.0
+theme_override_fonts/font = ExtResource("11_gxybe")
+theme_override_font_sizes/font_size = 8
+text = "0"
+
+[node name="score_code" type="Node2D" parent="player/score"]
+unique_name_in_owner = true
+script = ExtResource("4_d6qam")
+
 [node name="menu" type="Button" parent="player"]
 offset_left = -184.0
 offset_top = -110.0
@@ -488,7 +503,18 @@ flat = true
 expand_icon = true
 script = ExtResource("11_bmcba")
 
-[node name="level_timer" type="Label" parent="player"]
+[node name="timer_seconds" type="Label" parent="player"]
+unique_name_in_owner = true
+offset_left = -167.0
+offset_top = -58.0
+offset_right = -132.0
+offset_bottom = -50.0
+theme_override_fonts/font = ExtResource("11_gxybe")
+theme_override_font_sizes/font_size = 8
+text = "00"
+script = ExtResource("10_fatlh")
+
+[node name="timer_minutes" type="Label" parent="player"]
 unique_name_in_owner = true
 offset_left = -180.0
 offset_top = -58.0
@@ -496,22 +522,8 @@ offset_right = -145.0
 offset_bottom = -50.0
 theme_override_fonts/font = ExtResource("11_gxybe")
 theme_override_font_sizes/font_size = 8
-text = "00:00"
-script = ExtResource("10_fatlh")
-
-[node name="score" type="Label" parent="player"]
-unique_name_in_owner = true
-offset_left = -180.0
-offset_top = -70.0
-offset_right = -129.0
-offset_bottom = -62.0
-theme_override_fonts/font = ExtResource("11_gxybe")
-theme_override_font_sizes/font_size = 8
-text = "Score: 0"
-
-[node name="score_code" type="Node2D" parent="player/score"]
-unique_name_in_owner = true
-script = ExtResource("4_d6qam")
+text = "0:"
+script = ExtResource("14_pb71l")
 
 [node name="end_level" parent="player" instance=ExtResource("13_llp74")]
 unique_name_in_owner = true

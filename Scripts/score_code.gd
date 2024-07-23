@@ -6,5 +6,5 @@ extends Node2D
 var coins = 0
 
 func add_score():
-	coins +=1
-	score.text = "Score: " + str(coins)
+	coins += 1
+	score.text = str(coins)

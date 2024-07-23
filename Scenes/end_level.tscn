@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://n1on44ble13o"]
+[gd_scene load_steps=17 format=3 uid="uid://n1on44ble13o"]
 
 [ext_resource type="Script" path="res://Scripts/end_level.gd" id="1_batyx"]
 [ext_resource type="Texture2D" uid="uid://dnjhw7thmutq" path="res://Assets/level-menu-tileset.png" id="1_iiua3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtxonf56ntgdq" path="res://Assets/buttons/forward.png" id="3_fin47"]
 [ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="3_ho77e"]
 [ext_resource type="Texture2D" uid="uid://ni3cvphjm566" path="res://Assets/buttons/empty_star.png" id="6_kuaaa"]
+[ext_resource type="Texture2D" uid="uid://chaqrgyhrxdro" path="res://Assets/buttons/stars.png" id="7_0fm8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nq1e3"]
 texture = ExtResource("1_iiua3")
@@ -23,6 +24,61 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_f88tc"]
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_nq1e3")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqe73"]
+atlas = ExtResource("7_0fm8n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mefkg"]
+atlas = ExtResource("7_0fm8n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okc46"]
+atlas = ExtResource("7_0fm8n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrjrx"]
+atlas = ExtResource("7_0fm8n")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0fx2"]
+atlas = ExtResource("7_0fm8n")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kov3j"]
+atlas = ExtResource("7_0fm8n")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8yy7n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqe73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mefkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okc46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrjrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0fx2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kov3j")
+}],
+"loop": true,
+"name": &"stationary",
+"speed": 5.0
+}]
 
 [node name="end_level" type="Control"]
 layout_mode = 3
@@ -105,5 +161,33 @@ position = Vector2(256, 48)
 scale = Vector2(2, 2)
 texture = ExtResource("6_kuaaa")
 
+[node name="star1" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(64, 48)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8yy7n")
+animation = &"stationary"
+
+[node name="star2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(160, 48)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8yy7n")
+animation = &"stationary"
+
+[node name="star3" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(256, 48)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8yy7n")
+animation = &"stationary"
+
+[node name="timer1" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="timer2" type="Timer" parent="."]
+
 [connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="next_level" to="." method="_on_next_level_pressed"]
+[connection signal="timeout" from="timer1" to="." method="_on_timer_1_timeout"]
+[connection signal="timeout" from="timer2" to="." method="_on_timer_2_timeout"]

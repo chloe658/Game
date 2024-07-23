@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d3ulvvftl0mfb"]
+[gd_scene load_steps=24 format=3 uid="uid://d3ulvvftl0mfb"]
 
 [ext_resource type="Texture2D" uid="uid://c0h4e2eclfs04" path="res://Assets/sky.png" id="1_g2wfe"]
 [ext_resource type="Texture2D" uid="uid://dh78piv46ni4" path="res://Assets/tile-set.png" id="1_qgq1e"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/level_timer.gd" id="10_0jgoj"]
 [ext_resource type="PackedScene" uid="uid://3bi8hl5v20u" path="res://Scenes/coin.tscn" id="11_efmoc"]
 [ext_resource type="PackedScene" uid="uid://n1on44ble13o" path="res://Scenes/end_level.tscn" id="11_upp6t"]
+[ext_resource type="Script" path="res://Scripts/timer_minutes.gd" id="15_jikxc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7qxs"]
 texture = ExtResource("1_g2wfe")
@@ -518,22 +519,11 @@ offset_right = -124.0
 offset_bottom = -62.0
 theme_override_fonts/font = ExtResource("5_ttpp0")
 theme_override_font_sizes/font_size = 8
-text = "Score: 0"
+text = "0"
 
 [node name="score_code" type="Node2D" parent="player/score"]
 unique_name_in_owner = true
 script = ExtResource("8_uibk2")
-
-[node name="level_timer" type="Label" parent="player"]
-unique_name_in_owner = true
-offset_left = -180.0
-offset_top = -58.0
-offset_right = -147.0
-offset_bottom = -49.0
-theme_override_fonts/font = ExtResource("5_ttpp0")
-theme_override_font_sizes/font_size = 8
-text = "00:00"
-script = ExtResource("10_0jgoj")
 
 [node name="menu" type="Button" parent="player"]
 offset_left = -184.0
@@ -545,6 +535,28 @@ icon = ExtResource("9_2wqc3")
 flat = true
 expand_icon = true
 script = ExtResource("9_hpoeq")
+
+[node name="timer_seconds" type="Label" parent="player"]
+unique_name_in_owner = true
+offset_left = -167.0
+offset_top = -58.0
+offset_right = -132.0
+offset_bottom = -50.0
+theme_override_fonts/font = ExtResource("5_ttpp0")
+theme_override_font_sizes/font_size = 8
+text = "00"
+script = ExtResource("10_0jgoj")
+
+[node name="timer_minutes" type="Label" parent="player"]
+unique_name_in_owner = true
+offset_left = -180.0
+offset_top = -58.0
+offset_right = -145.0
+offset_bottom = -50.0
+theme_override_fonts/font = ExtResource("5_ttpp0")
+theme_override_font_sizes/font_size = 8
+text = "0:"
+script = ExtResource("15_jikxc")
 
 [node name="end_level" parent="player" instance=ExtResource("11_upp6t")]
 unique_name_in_owner = true
