@@ -8,6 +8,7 @@ func _on_body_entered(body):
 		body.die()
 		timer.start()
 
+
 func _on_timer_timeout():
 	# Restart level
 	get_tree().reload_current_scene()

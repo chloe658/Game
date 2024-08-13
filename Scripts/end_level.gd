@@ -39,18 +39,40 @@ func visibility():
 	star_1.visible = true
 	star_1.play("default")
 	
-	# Check star 2 and star 3
+	
+	# Assign stars
+	if level_number.text == "1":
+		globle.level_1_stars = 1
+	if level_number.text == "2":
+		globle.level_2_stars = 1
+	if level_number.text == "3":
+		globle.level_3_stars = 1
+
+	# Check star 2
 	if int(score.text) == 5 or int(timer_seconds.text) < 8:
+		if level_number.text == "1":
+			globle.level_1_stars = 2
+		if level_number.text == "2":
+			globle.level_2_stars = 2
+		if level_number.text == "3":
+			globle.level_3_stars = 2
 		# Delay so the star appears after animation is finished
 		timer_1.start()
 	
+	# Check star 3
 	if int(timer_seconds.text) < 8 and int(score.text) == 5 :
+		if level_number.text == "1":
+			globle.level_1_stars = 3
+		if level_number.text == "2":
+			globle.level_2_stars = 3
+		if level_number.text == "3":
+			globle.level_3_stars = 3
 		# Delay so the star appears after animation is finished
 		timer_2.start()
 
 
 func _on_timer_1_timeout():
-	# If the user meets requirements, make star 3 visible
+	# If the user meets requirements, make star 2 visible
 	star_2.visible = true
 	star_2.play("default", 1, true)
 
@@ -78,9 +100,8 @@ func _on_replay_level_pressed():
 	# Restart level
 	get_tree().reload_current_scene()
 
-	
+
 func _process(_delta):
 	# Go to main menu if 'esc' key is pressed
 	if Input.is_action_just_pressed("exit"):
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
-		
