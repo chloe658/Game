@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://d3ulvvftl0mfb"]
+[gd_scene load_steps=25 format=3 uid="uid://d3ulvvftl0mfb"]
 
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_6qfl4"]
 [ext_resource type="Texture2D" uid="uid://c0h4e2eclfs04" path="res://Assets/sky.png" id="1_g2wfe"]
 [ext_resource type="Texture2D" uid="uid://dh78piv46ni4" path="res://Assets/tile-set.png" id="1_qgq1e"]
 [ext_resource type="Texture2D" uid="uid://716eile12ny6" path="res://Assets/cloud.png" id="3_j68h4"]
@@ -417,14 +418,15 @@ sources/2 = SubResource("TileSetAtlasSource_03yk7")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ivcp6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm4kt"]
-size = Vector2(64, 14.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_srjr6"]
+radius = 32.0351
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_saqu0"]
 size = Vector2(17, 160)
 
 [node name="level2" type="Node2D"]
 position = Vector2(394, 309)
+script = ExtResource("1_6qfl4")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_f81r8")
@@ -453,12 +455,12 @@ metadata/_edit_group_ = true
 shape = SubResource("WorldBoundaryShape2D_ivcp6")
 
 [node name="killzone2" parent="." instance=ExtResource("7_b8k47")]
-position = Vector2(515, 53)
+position = Vector2(515, 76)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
-position = Vector2(-3, 2.75)
-shape = SubResource("RectangleShape2D_rm4kt")
+position = Vector2(-3, 0.5)
+shape = SubResource("CircleShape2D_srjr6")
 
 [node name="killzone3" parent="." instance=ExtResource("7_b8k47")]
 position = Vector2(757, -20)
@@ -509,7 +511,16 @@ offset_right = -132.0
 offset_bottom = -74.0
 theme_override_fonts/font = ExtResource("5_ttpp0")
 theme_override_font_sizes/font_size = 8
-text = "Level 2"
+text = "Level"
+
+[node name="level_number" type="Label" parent="player"]
+offset_left = -143.0
+offset_top = -82.0
+offset_right = -135.0
+offset_bottom = -74.0
+theme_override_fonts/font = ExtResource("5_ttpp0")
+theme_override_font_sizes/font_size = 8
+text = "2"
 
 [node name="score" type="Label" parent="player"]
 unique_name_in_owner = true

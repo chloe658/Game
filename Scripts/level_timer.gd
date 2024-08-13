@@ -5,8 +5,9 @@ extends Label
 var seconds = 0
 var minutes = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
+	# Calculate seconds using frames
 	seconds += delta
 	if seconds >= 60:
 		minutes += 1
@@ -15,7 +16,3 @@ func _process(delta):
 		level_timer.text = "0" + str(int(seconds))
 	else:
 		level_timer.text = str(int(seconds))
-		
-func stop():
-	var final_time = level_timer.text
-	print(final_time)

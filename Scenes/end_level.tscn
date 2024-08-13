@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://n1on44ble13o"]
+[gd_scene load_steps=18 format=3 uid="uid://n1on44ble13o"]
 
 [ext_resource type="Script" path="res://Scripts/end_level.gd" id="1_batyx"]
 [ext_resource type="Texture2D" uid="uid://dnjhw7thmutq" path="res://Assets/level-menu-tileset.png" id="1_iiua3"]
 [ext_resource type="Texture2D" uid="uid://cv87s6wl6kjod" path="res://Assets/buttons/menu.png" id="2_vm4k1"]
 [ext_resource type="Texture2D" uid="uid://dtxonf56ntgdq" path="res://Assets/buttons/forward.png" id="3_fin47"]
 [ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="3_ho77e"]
+[ext_resource type="Texture2D" uid="uid://dx40mxnle6lbs" path="res://Assets/buttons/back.png" id="5_vvjnf"]
 [ext_resource type="Texture2D" uid="uid://ni3cvphjm566" path="res://Assets/buttons/empty_star.png" id="6_kuaaa"]
 [ext_resource type="Texture2D" uid="uid://chaqrgyhrxdro" path="res://Assets/buttons/stars.png" id="7_0fm8n"]
 
@@ -129,18 +130,27 @@ text = "Coins:
 
 [node name="main_menu" type="Button" parent="."]
 layout_mode = 0
-offset_left = 104.0
+offset_left = 64.0
 offset_top = 104.0
-offset_right = 144.0
+offset_right = 104.0
 offset_bottom = 144.0
 icon = ExtResource("2_vm4k1")
 flat = true
 
+[node name="replay_level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 104.0
+offset_right = 180.0
+offset_bottom = 144.0
+icon = ExtResource("5_vvjnf")
+flat = true
+
 [node name="next_level" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
+offset_left = 216.0
 offset_top = 104.0
-offset_right = 224.0
+offset_right = 256.0
 offset_bottom = 144.0
 icon = ExtResource("3_fin47")
 flat = true
@@ -188,6 +198,7 @@ wait_time = 0.5
 [node name="timer2" type="Timer" parent="."]
 
 [connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="replay_level" to="." method="_on_replay_level_pressed"]
 [connection signal="pressed" from="next_level" to="." method="_on_next_level_pressed"]
 [connection signal="timeout" from="timer1" to="." method="_on_timer_1_timeout"]
 [connection signal="timeout" from="timer2" to="." method="_on_timer_2_timeout"]

@@ -1,31 +1,31 @@
-[gd_scene load_steps=22 format=3 uid="uid://v7t8py6bxafo"]
+[gd_scene load_steps=22 format=3 uid="uid://di6i3u5gubjtk"]
 
-[ext_resource type="Texture2D" uid="uid://c0h4e2eclfs04" path="res://Assets/sky.png" id="1_mrhaj"]
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_u83dl"]
-[ext_resource type="Texture2D" uid="uid://dh78piv46ni4" path="res://Assets/tile-set.png" id="2_8fxmi"]
-[ext_resource type="Texture2D" uid="uid://716eile12ny6" path="res://Assets/cloud.png" id="3_r3gym"]
-[ext_resource type="Script" path="res://Scripts/score_code.gd" id="4_d6qam"]
-[ext_resource type="Texture2D" uid="uid://cv87s6wl6kjod" path="res://Assets/buttons/menu.png" id="9_ebjrr"]
-[ext_resource type="Script" path="res://Scripts/level_timer.gd" id="10_fatlh"]
-[ext_resource type="Texture2D" uid="uid://cs8gkv0diglo0" path="res://Assets/Door.png" id="10_vxy1j"]
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="11_bmcba"]
-[ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="11_gxybe"]
-[ext_resource type="PackedScene" uid="uid://cad0vr46ot166" path="res://Scenes/player.tscn" id="12_n17g6"]
-[ext_resource type="PackedScene" uid="uid://cxljr3hljhv3w" path="res://Scenes/killzone.tscn" id="13_d527y"]
-[ext_resource type="PackedScene" uid="uid://n1on44ble13o" path="res://Scenes/end_level.tscn" id="13_llp74"]
-[ext_resource type="Script" path="res://Scripts/timer_minutes.gd" id="14_pb71l"]
-[ext_resource type="PackedScene" uid="uid://3bi8hl5v20u" path="res://Scenes/coin.tscn" id="14_x2hwy"]
-[ext_resource type="PackedScene" uid="uid://mxroet1wnyi2" path="res://Scenes/next_level.tscn" id="15_8xj0p"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_2uiqw"]
+[ext_resource type="Texture2D" uid="uid://dh78piv46ni4" path="res://Assets/tile-set.png" id="1_w0qp5"]
+[ext_resource type="Texture2D" uid="uid://c0h4e2eclfs04" path="res://Assets/sky.png" id="2_2elsp"]
+[ext_resource type="Texture2D" uid="uid://716eile12ny6" path="res://Assets/cloud.png" id="3_vflgy"]
+[ext_resource type="PackedScene" uid="uid://cad0vr46ot166" path="res://Scenes/player.tscn" id="4_vfp6c"]
+[ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="5_3a23w"]
+[ext_resource type="Script" path="res://Scripts/score_code.gd" id="6_2al4g"]
+[ext_resource type="Texture2D" uid="uid://cv87s6wl6kjod" path="res://Assets/buttons/menu.png" id="7_6iokq"]
+[ext_resource type="PackedScene" uid="uid://cxljr3hljhv3w" path="res://Scenes/killzone.tscn" id="7_nxmbw"]
+[ext_resource type="PackedScene" uid="uid://3bi8hl5v20u" path="res://Scenes/coin.tscn" id="8_3xmys"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="8_cesn1"]
+[ext_resource type="Script" path="res://Scripts/level_timer.gd" id="9_o50d2"]
+[ext_resource type="Script" path="res://Scripts/timer_minutes.gd" id="10_tpqo5"]
+[ext_resource type="PackedScene" uid="uid://n1on44ble13o" path="res://Scenes/end_level.tscn" id="11_c3tgd"]
+[ext_resource type="PackedScene" uid="uid://mxroet1wnyi2" path="res://Scenes/next_level.tscn" id="13_mxdw0"]
+[ext_resource type="Texture2D" uid="uid://cs8gkv0diglo0" path="res://Assets/Door.png" id="14_6yno8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtdj7"]
-texture = ExtResource("1_mrhaj")
+texture = ExtResource("2_2elsp")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_st0n0"]
-texture = ExtResource("2_8fxmi")
+texture = ExtResource("1_w0qp5")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -389,7 +389,7 @@ texture_region_size = Vector2i(32, 32)
 11:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1mxq"]
-texture = ExtResource("3_r3gym")
+texture = ExtResource("3_vflgy")
 texture_region_size = Vector2i(32, 32)
 3:1/size_in_atlas = Vector2i(7, 3)
 3:1/0 = 0
@@ -419,7 +419,7 @@ sources/2 = SubResource("TileSetAtlasSource_r1mxq")
 
 [node name="level1" type="Node2D"]
 position = Vector2(415, 314)
-script = ExtResource("1_u83dl")
+script = ExtResource("1_2uiqw")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pkgma")
@@ -431,16 +431,16 @@ layer_1/tile_data = PackedInt32Array(-6, 196610, 1, -262126, 196610, 1, 262155, 
 layer_2/name = "ground"
 layer_2/tile_data = PackedInt32Array(131068, 1, 0, 65538, 1, 0, 131069, 65537, 0, 131070, 65537, 0, 131071, 65537, 0, 65539, 65537, 0, 65540, 65537, 0, 65541, 131073, 0, 65536, 131073, 0, 262140, 1, 2, 196610, 1, 2, 196613, 196609, 2, 196608, 196609, 2, 262141, 65537, 2, 262142, 65537, 2, 262143, 65537, 2, 196611, 65537, 2, 196612, 65537, 2, 196605, 65537, 1, 196606, 65537, 1, 196607, 65537, 1, 131075, 65537, 1, 131076, 65537, 1, 196604, 1, 1, 131074, 1, 1, 131077, 196609, 1, 131072, 196609, 1, 65543, 1, 4, 65547, 1, 4, 65545, 131073, 4, 65548, 131073, 4, 65544, 65537, 4, 65551, 196609, 4, 65554, 196609, 4, 65558, 196609, 4, 65562, 196609, 4, 65566, 196609, 4, 65570, 458753, 3, 65571, 589825, 3)
 
-[node name="next_level" parent="." instance=ExtResource("15_8xj0p")]
+[node name="next_level" parent="." instance=ExtResource("13_mxdw0")]
 position = Vector2(1117, 11)
 metadata/_edit_group_ = true
 
 [node name="Door" type="Sprite2D" parent="next_level"]
 position = Vector2(2.25001, -10.875)
 scale = Vector2(1.54687, 2.00781)
-texture = ExtResource("10_vxy1j")
+texture = ExtResource("14_6yno8")
 
-[node name="killzone" parent="." instance=ExtResource("13_d527y")]
+[node name="killzone" parent="." instance=ExtResource("7_nxmbw")]
 position = Vector2(8, 141)
 metadata/_edit_group_ = true
 
@@ -449,22 +449,22 @@ shape = SubResource("WorldBoundaryShape2D_d7iio")
 
 [node name="coins" type="Node" parent="."]
 
-[node name="coin" parent="coins" instance=ExtResource("14_x2hwy")]
+[node name="coin" parent="coins" instance=ExtResource("8_3xmys")]
 position = Vector2(1200, 296)
 
-[node name="coin3" parent="coins" instance=ExtResource("14_x2hwy")]
+[node name="coin3" parent="coins" instance=ExtResource("8_3xmys")]
 position = Vector2(960, 296)
 
-[node name="coin4" parent="coins" instance=ExtResource("14_x2hwy")]
+[node name="coin4" parent="coins" instance=ExtResource("8_3xmys")]
 position = Vector2(1328, 296)
 
-[node name="coin2" parent="coins" instance=ExtResource("14_x2hwy")]
+[node name="coin2" parent="coins" instance=ExtResource("8_3xmys")]
 position = Vector2(1072, 296)
 
-[node name="coin5" parent="coins" instance=ExtResource("14_x2hwy")]
+[node name="coin5" parent="coins" instance=ExtResource("8_3xmys")]
 position = Vector2(864, 296)
 
-[node name="player" parent="." instance=ExtResource("12_n17g6")]
+[node name="player" parent="." instance=ExtResource("4_vfp6c")]
 position = Vector2(-51, -8)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -476,7 +476,7 @@ offset_left = -180.0
 offset_top = -82.0
 offset_right = -132.0
 offset_bottom = -74.0
-theme_override_fonts/font = ExtResource("11_gxybe")
+theme_override_fonts/font = ExtResource("5_3a23w")
 theme_override_font_sizes/font_size = 8
 text = "Level"
 
@@ -485,7 +485,7 @@ offset_left = -143.0
 offset_top = -82.0
 offset_right = -135.0
 offset_bottom = -74.0
-theme_override_fonts/font = ExtResource("11_gxybe")
+theme_override_fonts/font = ExtResource("5_3a23w")
 theme_override_font_sizes/font_size = 8
 text = "1"
 
@@ -495,13 +495,13 @@ offset_left = -180.0
 offset_top = -70.0
 offset_right = -129.0
 offset_bottom = -62.0
-theme_override_fonts/font = ExtResource("11_gxybe")
+theme_override_fonts/font = ExtResource("5_3a23w")
 theme_override_font_sizes/font_size = 8
 text = "0"
 
 [node name="score_code" type="Node2D" parent="player/score"]
 unique_name_in_owner = true
-script = ExtResource("4_d6qam")
+script = ExtResource("6_2al4g")
 
 [node name="menu" type="Button" parent="player"]
 offset_left = -184.0
@@ -509,10 +509,10 @@ offset_top = -110.0
 offset_right = -152.0
 offset_bottom = -86.0
 theme_override_font_sizes/font_size = 8
-icon = ExtResource("9_ebjrr")
+icon = ExtResource("7_6iokq")
 flat = true
 expand_icon = true
-script = ExtResource("11_bmcba")
+script = ExtResource("8_cesn1")
 
 [node name="timer_seconds" type="Label" parent="player"]
 unique_name_in_owner = true
@@ -520,10 +520,10 @@ offset_left = -167.0
 offset_top = -58.0
 offset_right = -132.0
 offset_bottom = -50.0
-theme_override_fonts/font = ExtResource("11_gxybe")
+theme_override_fonts/font = ExtResource("5_3a23w")
 theme_override_font_sizes/font_size = 8
 text = "00"
-script = ExtResource("10_fatlh")
+script = ExtResource("9_o50d2")
 
 [node name="timer_minutes" type="Label" parent="player"]
 unique_name_in_owner = true
@@ -531,12 +531,12 @@ offset_left = -180.0
 offset_top = -58.0
 offset_right = -145.0
 offset_bottom = -50.0
-theme_override_fonts/font = ExtResource("11_gxybe")
+theme_override_fonts/font = ExtResource("5_3a23w")
 theme_override_font_sizes/font_size = 8
 text = "0:"
-script = ExtResource("14_pb71l")
+script = ExtResource("10_tpqo5")
 
-[node name="end_level" parent="player" instance=ExtResource("13_llp74")]
+[node name="end_level" parent="player" instance=ExtResource("11_c3tgd")]
 unique_name_in_owner = true
 visible = false
 offset_left = -164.0
