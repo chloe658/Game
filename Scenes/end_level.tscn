@@ -176,7 +176,8 @@ visible = false
 position = Vector2(64, 48)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8yy7n")
-animation = &"stationary"
+frame = 4
+frame_progress = 1.0
 
 [node name="star2" type="AnimatedSprite2D" parent="."]
 visible = false

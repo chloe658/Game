@@ -1,5 +1,8 @@
 extends Control
 
+const time_for_star = 8
+const coins_for_star = 5
+
 # Get the label text to put onto the menu labels
 @onready var timer_seconds = %timer_seconds
 @onready var timer_minutes = %timer_minutes
@@ -49,7 +52,7 @@ func visibility():
 		globle.level_3_stars = 1
 
 	# Check star 2
-	if int(score.text) == 5 or int(timer_seconds.text) < 8:
+	if int(score.text) == coins_for_star or int(timer_seconds.text) < time_for_star:
 		if level_number.text == "1":
 			globle.level_1_stars = 2
 		if level_number.text == "2":
@@ -60,7 +63,7 @@ func visibility():
 		timer_1.start()
 	
 	# Check star 3
-	if int(timer_seconds.text) < 8 and int(score.text) == 5 :
+	if int(score.text) == coins_for_star and int(timer_seconds.text) < time_for_star:
 		if level_number.text == "1":
 			globle.level_1_stars = 3
 		if level_number.text == "2":
