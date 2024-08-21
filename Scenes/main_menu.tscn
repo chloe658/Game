@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7bv42851svwe"]
+[gd_scene load_steps=11 format=3 uid="uid://c7bv42851svwe"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_boafc"]
 [ext_resource type="Texture2D" uid="uid://c0h4e2eclfs04" path="res://Assets/sky.png" id="2_073ne"]
 [ext_resource type="Texture2D" uid="uid://dnjhw7thmutq" path="res://Assets/level-menu-tileset.png" id="2_enar8"]
 [ext_resource type="Texture2D" uid="uid://716eile12ny6" path="res://Assets/cloud.png" id="3_xh61b"]
 [ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="4_d5ypc"]
+[ext_resource type="Texture2D" uid="uid://brnoh8ywvys2l" path="res://Assets/title-font.png" id="6_ovw58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb4yr"]
 texture = ExtResource("2_enar8")
@@ -62,38 +63,46 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 65536, 2, 0, 131072, 2, 0, 196608,
 layer_1/name = "clouds"
 layer_1/tile_data = PackedInt32Array(65539, 196611, 1, 262155, 196611, 1, 131079, 262147, 5, 327685, 3, 5, 10, 3, 5, 393217, 262147, 5)
 layer_2/name = "tiles"
-layer_2/tile_data = PackedInt32Array(131076, 196608, 0, 196612, 196608, 0, 262148, 196608, 0, 131077, 262144, 0, 131078, 262144, 0, 196613, 262144, 0, 196614, 262144, 0, 262149, 262144, 0, 262150, 262144, 0, 131079, 327680, 0, 196615, 327680, 0, 262151, 327680, 0)
+layer_2/tile_data = PackedInt32Array(196612, 196608, 0, 262148, 196608, 0, 196613, 262144, 0, 196614, 262144, 0, 262149, 262144, 0, 262150, 262144, 0, 196615, 327680, 0, 262151, 327680, 0, 327684, 196608, 0, 327687, 327680, 0, 327685, 262144, 0, 327686, 262144, 0)
 
 [node name="play_button" type="Button" parent="TileMap"]
-offset_left = 144.0
-offset_top = 64.0
-offset_right = 240.0
-offset_bottom = 88.0
-theme_override_fonts/font = ExtResource("4_d5ypc")
-text = "Play"
-flat = true
-
-[node name="levels_button" type="Button" parent="TileMap"]
 offset_left = 144.0
 offset_top = 96.0
 offset_right = 240.0
 offset_bottom = 120.0
 theme_override_fonts/font = ExtResource("4_d5ypc")
-text = "Levels"
+text = "Play"
 flat = true
+metadata/_edit_use_anchors_ = true
 
-[node name="quit_button" type="Button" parent="TileMap"]
+[node name="levels_button" type="Button" parent="TileMap"]
 offset_left = 144.0
 offset_top = 128.0
 offset_right = 240.0
 offset_bottom = 152.0
 theme_override_fonts/font = ExtResource("4_d5ypc")
+text = "Levels"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="quit_button" type="Button" parent="TileMap"]
+offset_left = 144.0
+offset_top = 160.0
+offset_right = 240.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("4_d5ypc")
 text = "Quit"
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 108)
 zoom = Vector2(3, 3)
+
+[node name="Title-font" type="Sprite2D" parent="."]
+position = Vector2(192, 48)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_ovw58")
 
 [connection signal="pressed" from="TileMap/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="TileMap/levels_button" to="." method="_on_levels_button_pressed"]

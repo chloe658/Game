@@ -93,10 +93,13 @@ func _on_main_menu_pressed():
 
 
 func _on_next_level_pressed():
-	# Find next level using current level
-	var next_level = int(level_number.text) + 1
-	get_tree().change_scene_to_file("res://Scenes/level" + str(next_level) + ".tscn")
-	visible = false
+	if level_number.text == "3":
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	else:
+		# Find next level using current level
+		var next_level = int(level_number.text) + 1
+		get_tree().change_scene_to_file("res://Scenes/level" + str(next_level) + ".tscn")
+		visible = false
 
 
 func _on_replay_level_pressed():
@@ -108,3 +111,10 @@ func _process(_delta):
 	# Go to main menu if 'esc' key is pressed
 	if Input.is_action_just_pressed("exit"):
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	if Input.is_action_just_pressed("next") and visible == true:
+		# Find next level using current level
+		if level_number.text == "3":
+			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+		else:
+			var next_level = int(level_number.text) + 1
+			get_tree().change_scene_to_file("res://Scenes/level" + str(next_level) + ".tscn")
