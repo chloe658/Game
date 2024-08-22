@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d3ulvvftl0mfb"]
+[gd_scene load_steps=26 format=3 uid="uid://d3ulvvftl0mfb"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6qfl4"]
 [ext_resource type="Texture2D" uid="uid://c0h4e2eclfs04" path="res://Assets/sky.png" id="1_g2wfe"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dbpvlwf4nurv4" path="res://Assets/clouds 2.png" id="5_kho0d"]
 [ext_resource type="FontFile" uid="uid://bqp0rnuw3mtk6" path="res://Assets/PixelOperator8.ttf" id="5_ttpp0"]
 [ext_resource type="PackedScene" uid="uid://cxljr3hljhv3w" path="res://Scenes/killzone.tscn" id="7_b8k47"]
-[ext_resource type="Texture2D" uid="uid://c48rif5dhryqa" path="res://Assets/Arrow.png" id="8_fi3dl"]
 [ext_resource type="PackedScene" uid="uid://mxroet1wnyi2" path="res://Scenes/next_level.tscn" id="8_fj3w2"]
 [ext_resource type="Script" path="res://Scripts/score_code.gd" id="8_uibk2"]
 [ext_resource type="Texture2D" uid="uid://cv87s6wl6kjod" path="res://Assets/buttons/menu.png" id="9_2wqc3"]
@@ -499,22 +498,13 @@ metadata/_edit_group_ = true
 position = Vector2(0.5, 70)
 shape = SubResource("RectangleShape2D_saqu0")
 
-[node name="Arrow" type="Sprite2D" parent="."]
-position = Vector2(720, -10)
-texture = ExtResource("8_fi3dl")
-
-[node name="Arrow2" type="Sprite2D" parent="."]
-position = Vector2(318, -25)
-rotation = -1.24682
-texture = ExtResource("8_fi3dl")
-
 [node name="coins" type="Node" parent="."]
 
 [node name="coin" parent="coins" instance=ExtResource("11_efmoc")]
-position = Vector2(1136, 378)
+position = Vector2(1128, 384)
 
 [node name="coin2" parent="coins" instance=ExtResource("11_efmoc")]
-position = Vector2(1136, 464)
+position = Vector2(1128, 464)
 
 [node name="coin3" parent="coins" instance=ExtResource("11_efmoc")]
 position = Vector2(910, 287)

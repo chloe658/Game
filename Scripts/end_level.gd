@@ -1,7 +1,7 @@
 extends Control
 
-const time_for_star = 8
-const coins_for_star = 5
+const TIME_FOR_STAR = 8
+const COINS_FOR_STAR = 5
 
 # Get the label text to put onto the menu labels
 @onready var timer_seconds = %timer_seconds
@@ -42,7 +42,6 @@ func visibility():
 	star_1.visible = true
 	star_1.play("default")
 	
-	
 	# Assign stars
 	if level_number.text == "1":
 		globle.level_1_stars = 1
@@ -52,7 +51,7 @@ func visibility():
 		globle.level_3_stars = 1
 
 	# Check star 2
-	if int(score.text) == coins_for_star or int(timer_seconds.text) < time_for_star:
+	if int(score.text) == COINS_FOR_STAR or int(timer_seconds.text) < TIME_FOR_STAR:
 		if level_number.text == "1":
 			globle.level_1_stars = 2
 		if level_number.text == "2":
@@ -63,7 +62,7 @@ func visibility():
 		timer_1.start()
 	
 	# Check star 3
-	if int(score.text) == coins_for_star and int(timer_seconds.text) < time_for_star:
+	if int(score.text) == COINS_FOR_STAR and int(timer_seconds.text) < TIME_FOR_STAR:
 		if level_number.text == "1":
 			globle.level_1_stars = 3
 		if level_number.text == "2":
@@ -93,6 +92,7 @@ func _on_main_menu_pressed():
 
 
 func _on_next_level_pressed():
+	# If user has completed game, go to main menu
 	if level_number.text == "3":
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	else:
@@ -111,9 +111,11 @@ func _process(_delta):
 	# Go to main menu if 'esc' key is pressed
 	if Input.is_action_just_pressed("exit"):
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
 	if Input.is_action_just_pressed("next") and visible == true:
 		# Find next level using current level
 		if level_number.text == "3":
+			# If user has completed game, go to main menu
 			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 		else:
 			var next_level = int(level_number.text) + 1

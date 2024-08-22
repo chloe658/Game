@@ -45,4 +45,3 @@ func _physics_process(delta):
 func die():
 	# Play die animation
 	animated_sprite_2d.play("die")
-	
